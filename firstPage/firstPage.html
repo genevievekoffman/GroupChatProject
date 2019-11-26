@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="firstPage.css">
+    
+</head>
+<body>
+    
+    <div class = "generalLoginBox" id = "generalLoginBox" >
+            <div class="LoginWindow">
+                    <div class="title">
+                        Create Chat
+                    </div>
+                    <br>
+                    <div id='loginForm' class='loginForm'>
+                        <form onsubmit="createNewChatButton(event)"> 
+                            <input type='text' placeholder="username" name='Name' id = "username"></input>
+                            <input type='submit' value='OK' name='submit' ></input>
+                        </form>
+                    </div>
+                </div>
+            
+                <div class="LoginWindow" style="margin-top: 15px;">
+                    <div class="title">
+                        Join Chat
+                    </div>
+                    <br>
+                    <div id='loginForm' class='joinForm'>
+                            <form onsubmit="addUser(event)">
+                                    <input type='text' placeholder="Name" id="myName"></input>
+                                    <input type='text' placeholder="Group Chat Name" id="groupID"></input>
+                                    <input type='submit'></input>
+                            </form>
+                    </div>
+                </div>
+    </div>
+         
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDSmbvHh4Ws7HlDQUe-WfYRxs8EO6UwF0Q",
+            authDomain: "chat-app-50358.firebaseapp.com",
+            databaseURL: "https://chat-app-50358.firebaseio.com",
+            projectId: "chat-app-50358",
+            storageBucket: "chat-app-50358.appspot.com",
+            messagingSenderId: "902292063637",
+            appId: "1:902292063637:web:b093effec933ff939ee29c",
+            measurementId: "G-3LD1Q1T7G3"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const DB = firebase.firestore();
+    </script>
+    <script src='firstPage.js'></script>
+</body>
+</html></I>
