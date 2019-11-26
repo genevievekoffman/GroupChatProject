@@ -4,6 +4,8 @@ DB.collection('Chats').doc('Chat 2').onSnapshot(chatsDB => {
 })
 
 function addUser(event){
+    event.preventDefault();
+
     let username = document.getElementById('myName');
     let groupId = document.getElementById('groupId')
 
