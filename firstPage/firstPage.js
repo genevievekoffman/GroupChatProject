@@ -1,3 +1,5 @@
+
+
 function createNewChat(host){
     //generates a random number between 0-1m (chat ID)
     id = Math.floor(Math.random() * 1000000);  
@@ -6,10 +8,11 @@ function createNewChat(host){
     DB.collection("Chats").doc(id).collection("Users").add({username: host});
     DB.collection("Chats").doc(id).collection("Messages").add({messages: "none"})
     //DB.collection("Chats").doc(id).set({host: host});
-    document.getElementById("generalLoginBox").style.display = "none";
-    
-
+    document.getElementById("generalLoginBox").style.display = "none"; 
     DB.collection("Chats").doc(id).set({chatID: id});
+    document.getElementById("chatScreen").style.display = "";
+
+    
 }
 
 
@@ -38,39 +41,38 @@ function addUser(event){
         console.log(docDB.data())
         if (docDB.exists) {
             document.getElementById("generalLoginBox").style.display = "none";
-        DB.collection('Chats').doc(id).collection('Users').add({
-            username: username.value
-        })
+            DB.collection('Chats').doc(groupId.value).collection('Users').add({username: username.value});
+            document.getElementById("chatScreen").style.display = "";
+
         } else {
             console.log("false")
-            return "false";
         }
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
-     
-    // if(checkIDexists(groupId.value) == "true"){
-    //     document.getElementById("generalLoginBox").style.display = "none";
-    //     DB.collection('Chats').doc(id).collection('Users').add({
-    //         username: username.value
-    //     })
-    // }
 }
 
-//collection document docDB .exists()
 
-// function checkIDexists(groupID){
-//     console.log(groupID)
-//     DB.collection("Chats").doc(groupID).get().then(docDB=> {
-//         console.log(docDB.data())
-//         if (docDB.exists) {
-//             console.log("true")
-//             return "true";
-//         } else {
-//             console.log("false")
-//             return "false";
-//         }
-//     }).catch(function(error) {
-//         console.log("Error getting document:", error);
-//     });
-// }
+function sendMsg(event){
+    //send the msg to firebase
+    event.preventDefault();
+
+    let msg = document.getElementById("myText").value
+    let id = document.getElementById('groupID').value;
+    let user = document.getElementById('myName').value;
+
+    let today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes()
+
+    DB.collection("Chats").doc(id).collection("Messages").add({message: msg, sender: user, timestamp: time})
+
+    document.getElementById("myText").value = "";
+
+    //shows on screen
+    //document.getElementById("LastMsg").innerHTML = msg;
+}
+
+
+
+ 
+ 

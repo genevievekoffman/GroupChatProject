@@ -24,3 +24,9 @@ div{
     align-content: center;
     position: absolute;
 }
+
+.chatScreen{
+     
+    border: 1px solid black;
+    height: 80px;
+}

@@ -18,7 +18,7 @@
                     <br>
                     <div id='loginForm' class='loginForm'>
                         <form onsubmit="createNewChatButton(event)"> 
-                            <input type='text' placeholder="username" name='Name' id = "username"></input>
+                            <input type='text' placeholder="username" name='Name' id = "username" autocomplete="off"></input>
                             <input type='submit' value='OK' name='submit' ></input>
                         </form>
                     </div>
@@ -31,13 +31,24 @@
                     <br>
                     <div id='loginForm' class='joinForm'>
                             <form onsubmit="addUser(event)">
-                                    <input type='text' placeholder="Name" id="myName"></input>
-                                    <input type='text' placeholder="Group Chat Name" id="groupID"></input>
+                                    <input type='text' placeholder="Name" id="myName" autocomplete="off"></input>
+                                    <input type='text' placeholder="Group Chat Name" id="groupID" autocomplete="off"></input>
                                     <input type='submit'></input>
                             </form>
                     </div>
-                </div>
+            </div>
     </div>
+
+    <div class = "chatScreen" style = "display: none" id = "chatScreen" >
+            
+        <form onsubmit = "sendMsg(event)">
+            <input type='text' placeholder="Text Message" id="myText"></input>
+        </form>
+        <div class = "LastMsg" id = "LastMsg">
+        </div>
+            
+    </div>
+
          
 
 
