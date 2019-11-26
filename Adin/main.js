@@ -11,7 +11,7 @@ function addUser(event){
 
     if(groupId.value == id){
         DB.collection('Chats').doc(id).collection('Users').set({
-            name: username.nodeValue
+            name: username.value
         })
     }
 }
