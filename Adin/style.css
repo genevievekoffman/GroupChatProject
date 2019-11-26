@@ -1,0 +1,26 @@
+div{
+    width: fit-content;
+}
+
+.title{
+    margin: 0 auto;
+}
+
+.LoginWindow{
+    margin: 0 auto;
+    border: solid 2px black;
+    width: 20rem;
+    height: 5rem;
+}
+
+.loginForm{
+    display: flex;
+    margin: 0 auto;
+}
+
+.joinForm{
+    display: flex;
+    margin: 0 auto;
+    align-content: center;
+    position: absolute;
+}
